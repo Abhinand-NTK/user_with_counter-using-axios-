@@ -1,7 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-const Counter_app = () => {
+import './App.css'
 
+
+
+
+
+const Counter_app = () => {
   const  [count,setCount] = useState(0)
   const  [user,setUser] = useState(null)
   const  [loading,setLoading] = useState(false)
@@ -36,20 +41,23 @@ const Counter_app = () => {
 
 
   return (
-    <div>
+    <div className='content'>
       { loading && <p>Loding for the user information</p> }
       { user && 
-      <div>
+      <div className='userinformation'>
         <h2>User Information</h2>
         <p>Name :-  {user.name}</p>
         <p>E-mail :-  {user.email}</p>
       </div>
       }
-      { err && <p>Error : {err}</p> }
+      { err && <p className='text-danger'>Error : {err}</p> }
+      <div className='buttoncontroll'> 
       <h2>Counter App</h2>
-      <button onClick={increment}>+</button>
-      <h2>{count}</h2>
-      <button onClick={decrement}>-</button>
+        <button onClick={increment}>+</button>
+        <h2>{count}</h2>
+        <button onClick={decrement}>-</button>
+      </div>
+        
       
     </div>
   )
